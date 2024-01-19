@@ -1,0 +1,22 @@
+.special-background {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.squarespace-cdn.com/content/v1/5056c03584aedaeee9199a39/1512901729473-O70PDOI581WZL3DTM58B/how-blogging-works.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    animation: comeFromLeft 1s;   
+}
+
+@keyframes comeFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    80% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

@@ -22,7 +22,7 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
 
     def __str__(self) -> str:
-        return f"{self.name} {self.category} {self.price} {self.available}"
+        return f"{self.name} {self.price} "
 
 class Customer(models.Model):
     username = models.CharField(max_length=50)
@@ -57,3 +57,6 @@ class Order(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.IntegerField()
     created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self) -> str:
+        return f"{self.customer} {self.product}"

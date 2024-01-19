@@ -1,0 +1,23 @@
+.special-background {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://sycom.sk/wp-content/uploads/2020/03/eshop-rlsoft-2019.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center ;
+}
+
+h1 {
+    animation: comeFromLeft 1s;   
+}
+
+@keyframes comeFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    80% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

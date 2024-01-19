@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+</head>
+<body>
+    <div class="flex items-center justify-center h-screen special-background">
+        <h1 class="text-8xl text-center font-semibold text-white"><a href="{% url 'index' %}">Môj blog</a></h1>
+    </div>
+    <div class="container mx-auto py-5 px-4">
+        <div class="container pl-5">
+            {% if posts %}
+            <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_posts' %}">Príspevky</a>:</h2>
+            <ul class="mt-3 py-3 px-4">
+                {% for post in posts %}
+                    <li class="my-2">{{post}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+            {% if categories %}
+                <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_categories' %}">Kategórie</a>:</h2>
+                <ul class="mt-3 py-3 px-4">
+                    {% for category in categories %}
+                        <li class="my-2">{{category}}</li>        
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        
+            {% if authors %}
+                <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_authors' %}">Autori</a>:</h2>
+                <ul class="mt-3 py-3 px-4">
+                    {% for author in authors %}        
+                        <li class="my-2">{{author}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </div>
+        
+    </div>
+    
+</body>
+</html>

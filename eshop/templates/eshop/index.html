@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eshop</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static "eshop/style.css" %}">
 </head>
 <body>
+    <div class="flex items-center justify-center h-screen special-background">
+        <h1 class="text-8xl text-center font-semibold text-white"><a href="{% url 'index' %}">Môj eshop</a></h1>
+    </div>
     <div class="container mx-auto py-4 px-4">
-        <h1 class="text-3xl py-2 px-3 text-center text-cyan-700">Môj eshop</h1>
         <div class="container pl-5">
             {% if products %}
             <h2 class="text-2xl pr-4">Produkty:  </h2>
@@ -33,6 +37,15 @@
                 <ul class="mt-3 py-3 px-4">
                     {% for customer in customers %}        
                         <li class="my-2">{{customer}}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            {% if orders %}
+                <h2 class="text-2xl pr-4">Objednávky: </h2>
+                <ul class="mt-3 py-3 px-4">
+                    {% for order in orders %}        
+                        <li class="my-2">{{order}}</li>
                     {% endfor %}
                 </ul>
             {% endif %}
