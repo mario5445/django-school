@@ -4,34 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Škola</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>Moja škola</h1>
-    {% if studenti %}
-        <h2>Študenti: </h2>
-        <ul>
-            {% for student in studenti %}
-                <li>{{student}}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+    <div class="container mx-auto py-4 px-4">
+        <h1 class="text-3xl py-2 px-3 text-center text-cyan-700">Moja škola</h1>
+        <div class="container pl-5">
+            {% if studenti %}
+                <h2 class="text-2xl pr-4">Študenti:  </h2>
+                <ul class="mt-3 py-3 px-4">
+                     {% for student in studenti %}
+                        <li class="my-2">{{student}}</li>
+                     {% endfor %}
+                </ul>
+            {% endif %}
     
-    {% if ucitelia %}
-        <h2>Učitelia: </h2>
-        <ul>
-            {% for ucitel in ucitelia %}
-                <li>{{ucitel}}</li>        
-            {% endfor %}
-        </ul>
-    {% endif %}
-
-    {% if triedy %}
-        <h2>Triedy: </h2>
-        <ul>
-            {% for trieda in triedy %}        
-                <li>{{trieda}}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
+            {% if ucitelia %}
+                <h2 class="text-2xl pr-4">Učitelia: </h2>
+                <ul class="mt-3 py-3 px-4">
+                    {% for ucitel in ucitelia %}
+                        <li class="my-2">{{ucitel}}</li>        
+                    {% endfor %}
+                </ul>
+            {% endif %}
+    
+    
+    
+            {% if triedy %}
+                    <h2 class="text-2xl pr-4">Triedy: </h2>
+                    <ul class="mt-3 py-3 px-4">
+                        {% for trieda in triedy %}     
+                            <li class="my-2">{{trieda}}</li>
+                        {% endfor %}
+                    </ul>
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>
