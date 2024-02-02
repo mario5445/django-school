@@ -34,3 +34,13 @@ def vypis_customers(request) -> HttpResponse:
     return render(request, 'eshop/index.html', {
         'customers' : customers,
     })  
+
+def category(request, category):
+    categories = Category.objects.all()
+    category_obj = Category.objects.get(name=category)
+    products = Product.objects.filter(category_id=category_obj.pk).order_by("name")
+    return render(request, "eshop/index.html", {"categories" : categories, "products" : products, "special_message" : f"Výsledky pre kategóriu {category_obj.name}"})
+
+def product(request, product):
+    product_obj = Product.objects.get(name=product)
+    return render(request, "eshop/product.html", {"product" : product_obj})

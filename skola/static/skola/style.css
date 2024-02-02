@@ -1,3 +1,23 @@
+.special-background {
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://dam.nmhmedia.sk/image/410dea26-e21e-423b-8263-d4bbc6bfdd1d_dam-urlpflh0v.jpg/960/540');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center ;
+}
+
 h1 {
-    color: red;
+    animation: comeFromLeft 1s;   
+}
+
+@keyframes comeFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    80% {
+        transform: translateX(10%);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }

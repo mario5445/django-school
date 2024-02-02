@@ -15,16 +15,19 @@
     <div class="container mx-auto py-5 px-4">
         <div class="container pl-5">
             {% if posts %}
-            <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_posts' %}">Príspevky</a>:</h2>
+            <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_posts' %}">Príspevky</a></h2>
             <ul class="mt-3 py-3 px-4">
                 {% for post in posts %}
-                    <li class="my-2">{{post}}</li>
+                <li class="border border-slate-500 rounded-md mb-4 p-4">
+                    <div class="my-2 font-semibold text-xl">{{post.nazov}} <span class="text-base">&commat;{{post.author}}</span></div>
+                    <div>{{post.content}}</div>                    
+                </li>
                 {% endfor %}
             </ul>
             {% endif %}
             
             {% if categories %}
-                <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_categories' %}">Kategórie</a>:</h2>
+                <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_categories' %}">Kategórie</a></h2>
                 <ul class="mt-3 py-3 px-4">
                     {% for category in categories %}
                         <li class="my-2">{{category}}</li>        
@@ -33,10 +36,10 @@
             {% endif %}
         
             {% if authors %}
-                <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_authors' %}">Autori</a>:</h2>
+                <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'display_authors' %}">Autori</a></h2>
                 <ul class="mt-3 py-3 px-4">
                     {% for author in authors %}        
-                        <li class="my-2">{{author}}</li>
+                        <li class="my-2">@{{author}}</li>
                     {% endfor %}
                 </ul>
             {% endif %}

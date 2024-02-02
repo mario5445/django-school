@@ -22,7 +22,7 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
 
     def __str__(self) -> str:
-        return f"{self.name} {self.price} "
+        return f"{self.name}"
 
 class Customer(models.Model):
     username = models.CharField(max_length=50)
