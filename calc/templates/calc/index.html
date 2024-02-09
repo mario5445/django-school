@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulačka</title>
+</head>
+<body>
+    <h1>Kalkulačka</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="a">Prvé číslo:</label><br>
+        <input type="text" name="a"><br>
+        <label for="operator">Operátor:</label><br>
+        <select name="operator" id="operator">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+        </select><br>
+        <label for="b">Druhé číslo:</label><br>
+        <input type="text" name="b"><br>
+        <input type="submit" name="submit">
+    </form>
+    {% if error_message %}
+        <p style="color: red;">{{error_message}}</p>
+    {% endif %}
+    {% if vysledok %}
+        <h2>{{a}} {{operator}} {{b}} = {{vysledok}}</h2>
+    {% endif %}
+</body>
+</html>
