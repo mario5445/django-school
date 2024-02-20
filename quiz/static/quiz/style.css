@@ -1,0 +1,156 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Gill Sans", sans-serif;
+  background-color: #fffefc;
+}
+
+.main {
+  height: 100vh;
+  font-size: 2rem;
+}
+
+.heading-main {
+  height: 30rem;
+  vertical-align: middle;
+  font-size: 7rem;
+  color: rgb(31, 87, 209);
+  text-align: center;
+  padding-top: 6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.6rem;
+}
+
+.container {
+  width: 30vw;
+  margin: 0 auto;
+}
+
+.equation {
+  display: flex;
+  height: 10rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.equation-item {
+  height: 5rem;
+  font-size: 5rem;
+  font-weight: bold;
+  color: #363232;
+}
+
+.user-input {
+  height: 5rem;
+  font-size: 2rem;
+  width: 10rem;
+  font-family: inherit;
+  text-align: center;
+  border: none;
+  border: 1px solid rgb(231, 150, 0);
+  transition: all 0.3s;
+  color: #363232;
+}
+
+.user-input:focus {
+  transform: scale(1.1);
+  outline: none;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 2rem;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.btn {
+  font-size: 1.7rem;
+  padding: 1.5rem 1rem;
+  background-color: #f0f8ff;
+  border: none;
+  border-radius: 3px;
+}
+
+.btn {
+  background-color: rgb(31, 87, 209);
+  transition: all 0.3s;
+  color: #f0f8ff;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: rgb(7, 46, 131);
+}
+
+.btn:focus {
+  border: 1px solid #000;
+}
+
+.check {
+  background-color: rgb(255, 166, 0);
+}
+
+.check:hover {
+  background-color: rgb(221, 149, 15);
+}
+
+.next {
+  padding: 1.5rem 2rem;
+}
+
+.result {
+  font-size: 5rem;
+  text-align: center;
+  margin-top: 5rem;
+}
+
+.correct {
+  color: #1eb910;
+}
+
+.wrong {
+  color: #da1616;
+}
+
+.score {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.reset {
+  padding: 1.5rem 2rem;
+  background-color: #da1616;
+}
+
+.reset:hover {
+  background-color: #af0101;
+}

@@ -6,7 +6,7 @@ def calc(request):
     if request.method == "GET":
         return render(request, "calc/index.html")
     if request.method == "POST":
-        print(request.POST)
+        # print(request.POST)
         try:
             a = float(request.POST['a'])
             b = float(request.POST['b'])

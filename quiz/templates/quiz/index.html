@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizzer</title>
+    <link rel="stylesheet" href="{% static "quiz/style.css" %}">
+
+  </head>
+  <body>
+    <main class="main">
+      <h1 class="heading-main">Quizzer</h1>
+      <div class="container">
+        <div class="equation">
+          <div class="equation-item" id="a">{{priklad.a}}</div>
+          <div class="equation-item equation-operator" id="operator">{{priklad.operator}}</div>
+          <div class="equation-item" id="b">{{priklad.b}}</div>
+          <div class="equation-item equation-operator">&equals;</div>
+          <input class="user-input" name="user-input" type="text" />
+        </div>
+        <div class="controls">
+          <div class="score"><div>Skóre: <span class="score-text">0</span></div></div>
+          <div class="btns">
+          <button type="submit" class="btn check">Skontroluj</button>
+          <button class="btn reset">&orarr;</button>
+          <a href="" class="btn next">&rArr;</a>
+            </div>
+        </div>
+      </div>
+      <div class="result">
+        <!-- <div class="result-correct">Correct!</div>
+        <div class="result-wrong">Wrong!</div> -->
+    </div>
+    </main>
+    <script src="{% static "quiz/script.js" %}"></script>
+  </body>
+</html>

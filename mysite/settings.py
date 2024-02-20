@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'eshop',
     'blog',
     'calc',
+    'quiz',
 ]
 
 MIDDLEWARE = [
