@@ -40,3 +40,17 @@ def trieda(request, trieda):
     ucitel = Ucitel.objects.get(trieda_id=trieda_obj.pk)
     ucitel = f"{ucitel.titul} {ucitel.meno} {ucitel.priezvisko}"
     return render(request, "skola/trieda_list.html", {"trieda" : trieda, "ucitel" : ucitel, "studenti" : studenti_list})
+
+def ucitel_detail(request, pk):
+    ucitel = Ucitel.objects.get(pk=pk)
+    return render(request, "skola/detail.html", {
+        "ucitel" : ucitel,
+    })
+
+def student_detail(request, pk):
+    student = Student.objects.get(pk=pk)
+    triedny = Ucitel.objects.get(trieda_id=student.trieda_id)
+    return render(request, "skola/detail.html", {
+        "student" : student,
+        "triedny" : triedny
+    })

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if student %}
+<h1 class="text-3xl text-cyan-700">Študent {{student.meno}} {{student.priezvisko}}</h1>
+<div class="text-lg mt-3">Trieda: <a href="{% url "trieda" trieda=student.trieda %}" class="text-blue-600 hover:underline">{{student.trieda}}</a></div>
+<div class="text-lg mt-3">Triedny učiteľ: <a href="{% url "ucitel_detail" pk=triedny.id %}" class="text-blue-600 hover:underline"> {{triedny.titul}} {{triedny.meno}} {{triedny.priezvisko}}</a></div>
+{% endif %}
+
+{% if ucitel %}
+<h1 class="text-3xl text-cyan-700">Učiteľ {{ucitel.titul}} {{ucitel.meno}} {{ucitel.priezvisko}}</h1>
+<div class="text-lg mt-3">Trieda:  <a href="{% url "trieda" trieda=ucitel.trieda %}" class="text-blue-600 hover:underline">{{ucitel.trieda}}</a></div>
+{% endif %}
+{% endblock  %}

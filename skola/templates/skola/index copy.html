@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="flex items-center justify-center h-screen special-background">
+            <h1 class="text-8xl text-center font-semibold text-white"><a href="{% url 'vypis_skola' %}">Moja škola</a></h1>
+        </div>
+        <div class="container mx-auto py-4 px-4">
+            <h1 class="text-3xl py-2 px-3 text-center text-cyan-700"></h1>
+            <div class="container pl-5">
+                {% if studenti %}
+                    <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'vypis_student' %}">Študenti</a></h2>
+                    <ul class="mt-3 py-3 px-4">
+                        {% for student in studenti %}
+                            <li class="my-2">{{student}}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+        
+        {% if ucitelia %}
+            <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'vypis_ucitel' %}">Učitelia</a></h2>
+            <ul class="mt-3 py-3 px-4">
+                {% for ucitel in ucitelia %}
+                    <li class="my-2">{{ucitel}}</li>        
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if triedy %}
+            <h2 class="text-2xl pr-4"><a class="hover:underline" href="{% url 'vypis_trieda' %}">Triedy</a></h2>
+            <ul class="mt-3 py-3 px-4">
+                {% for trieda in triedy %}        
+                    <li class="my-2"><a class="hover:underline" href="{% url "trieda" trieda=trieda %}">{{trieda}}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+{% endblock  %}
