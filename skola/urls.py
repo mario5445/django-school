@@ -7,7 +7,9 @@ urlpatterns = [
     path("studenti/", views.vypis_student, name="vypis_student"),
     path("ucitelia/", views.vypis_ucitel, name="vypis_ucitel"),
     path("triedy/", views.vypis_trieda, name="vypis_trieda"),
+    path("kruzky/", views.vypis_kruzky, name="vypis_kruzok"),
     path("triedy/<trieda>/", views.trieda, name="trieda"),
     path("ucitelia/<int:pk>/", views.ucitel_detail, name="ucitel_detail"),
     path("studenti/<int:pk>/", views.student_detail, name="student_detail"),
+    path("kruzky/<skr>/", views.kruzok_detail, name="kruzok_detail"),
 ]

@@ -1,31 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Škola</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     {% if trieda %}
-        <div class="">
-            <h1 class="">{{trieda}}</a></h1>
-        </div>
+            <h1 class="text-5xl text-center font-semibold text-cyan-700">{{trieda}}</a></h1>
     {% endif %}
-
-    <div class="">
         {% if ucitel %}
-            <h2 class="">Triedny učiteľ: {{ucitel}}</h2>
+            <h2 class="text-2xl mb-4">Triedny učiteľ: <a href="{% url "ucitel_detail" pk=ucitel.id %}">{{ucitel.titul}} {{ucitel.meno}} {{ucitel.priezvisko}}</a></h2>
         {% endif %}
-        <div class="">
+        <div class="container pl-5">
             {% if studenti %}
-                <h2 class="">Študenti</h2>
-                <ul class="">
+                <h2 class="text-2xl pr-4">Študenti</h2>
+                <ul class="mt-3 py-3 px-4">
                      {% for student in studenti %}
-                        <li class="">{{student}}</li>
+                        <li class="my-2"><a href="{% url "student_detail" pk=student.id %}">{{student.meno}} {{student.priezvisko}}</a></li>
                      {% endfor %}
                 </ul>
             {% endif %}
-        </div>
-    </div>
-</body>
-</html>
+
+{% endblock  %}

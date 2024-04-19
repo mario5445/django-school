@@ -27,4 +27,13 @@
             {% endfor %}
         </ul>
     {% endif %}
+
+    {% if kruzky %}
+        <h2 class="text-2xl pr-4">Krúžky</h2>
+        <ul class="mt-3 py-3 px-4">
+            {% for kruzok in kruzky %}        
+                <li class="my-2"><a class="hover:underline" href="{% url "kruzok_detail" skr=kruzok.skratka %}">{{kruzok}}</a></li>
+            {% endfor %}    
+        </ul>
+    {% endif %}
 {% endblock  %}

@@ -1,6 +1,8 @@
 from django.shortcuts import render, HttpResponse
-from . models import Student, Ucitel, Trieda
-
+from . models import *
+from dateutil import relativedelta
+# from datetime import datetime as dt
+import datetime
 # Create your views here.
 
 def vypis_skola(request):
@@ -36,21 +38,49 @@ def trieda(request, trieda):
     studenti = Student.objects.filter(trieda_id=trieda_obj.pk).order_by("priezvisko")
     studenti_list = []
     for student in studenti:
-        studenti_list.append(f'{student.meno} {student.priezvisko}')
+        studenti_list.append(student)
     ucitel = Ucitel.objects.get(trieda_id=trieda_obj.pk)
-    ucitel = f"{ucitel.titul} {ucitel.meno} {ucitel.priezvisko}"
     return render(request, "skola/trieda_list.html", {"trieda" : trieda, "ucitel" : ucitel, "studenti" : studenti_list})
 
 def ucitel_detail(request, pk):
     ucitel = Ucitel.objects.get(pk=pk)
+    try:
+        kruzok = Kruzok.objects.get(ucitel=ucitel.id)
+    except Exception:
+        kruzok = None
+    start_date = datetime.date.today()
+    end_date = datetime.datetime.strptime(ucitel.datum_narodenia, "%d.%m.%Y") 
+    vek = abs(relativedelta.relativedelta(end_date, start_date).years)
     return render(request, "skola/detail.html", {
         "ucitel" : ucitel,
+        "kruzky_ucitel" : kruzok,
+        "vek" : vek
     })
 
 def student_detail(request, pk):
     student = Student.objects.get(pk=pk)
     triedny = Ucitel.objects.get(trieda_id=student.trieda_id)
+    kruzky = Kruzok.objects.all().filter(student=student.id)
+    start_date = datetime.date.today()
+    end_date = datetime.datetime.strptime(student.datum_narodenia, "%d.%m.%Y") 
+    vek = abs(relativedelta.relativedelta(end_date, start_date).years)
     return render(request, "skola/detail.html", {
         "student" : student,
-        "triedny" : triedny
+        "triedny" : triedny,
+        "kruzky" : kruzky,
+        "vek" : vek
+    })
+
+def vypis_kruzky(request):
+    kruzky = Kruzok.objects.all().order_by("nazov")
+    return render(request, "skola/index.html", {
+        "kruzky" : kruzky
+    })
+
+def kruzok_detail(request, skr):
+    kruzok = Kruzok.objects.get(skratka=skr)
+    studenti = Student.objects.all().filter(kruzok=kruzok.pk)
+    return render(request, "skola/detail.html", {
+        "kruzok" : kruzok,
+        "studenti" : studenti
     })
