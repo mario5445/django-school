@@ -1,4 +1,6 @@
 from django.shortcuts import render, HttpResponse
+
+from . forms import UzivatelForm
 from . models import *
 from dateutil import relativedelta
 # from datetime import datetime as dt
@@ -84,3 +86,27 @@ def kruzok_detail(request, skr):
         "kruzok" : kruzok,
         "studenti" : studenti
     })
+
+def pridaj_uzivatel(request):
+    if request.method == "POST":
+        uzivatel = Uzivatel(
+            meno=request.POST['meno'],
+            priezvisko=request.POST['priezvisko'],
+            email=request.POST['email'],
+            datum=request.POST['datum']
+        )
+        uzivatel.save()
+        return HttpResponse("OK")
+    else:
+        return render(request, "skola/pridaj_uzivatel.html")
+    
+def pridaj_uzivatel2(request):
+    if request.method == "POST":
+        form = UzivatelForm(request.POST)
+        if form.is_valid():
+                form.save()
+                return HttpResponse("OK")
+    else:
+        form = UzivatelForm()
+        
+

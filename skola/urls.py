@@ -12,4 +12,6 @@ urlpatterns = [
     path("ucitelia/<int:pk>/", views.ucitel_detail, name="ucitel_detail"),
     path("studenti/<int:pk>/", views.student_detail, name="student_detail"),
     path("kruzky/<skr>/", views.kruzok_detail, name="kruzok_detail"),
+    path("add_uzivatel/", views.pridaj_uzivatel, name="pridaj_uzivatel"),
+    path("add_uzivatel/", views.pridaj_uzivatel2, name="pridaj_uzivatel2"),
 ]

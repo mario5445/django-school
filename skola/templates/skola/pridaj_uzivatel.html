@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2 class="text-xl font">Nový užívateľ</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="meno">Meno</label>
+        <input class="border-2 border-slate-600 mb-2 rounded p-2" type="text" name="meno"><br>
+        <label for="priezvisko">Priezvisko</label>
+        <input class="border-2 border-slate-600 mb-2 rounded p-2" type="text" name="priezvisko"><br>
+        <label for="email">Email</label>
+        <input class="border-2 border-slate-600 mb-2 rounded p-2" type="email" name="email"><br>
+        <label for="datum">Datum</label>
+        <input class="border-2 border-slate-600 mb-2 rounded p-2" type="date" name="datum"><br>
+        <input class="border-2 border-slate-600 rounded p-2 " type="submit" value="Odošli">
+    </form>
+{% endblock  %}
